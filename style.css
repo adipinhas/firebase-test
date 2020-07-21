@@ -24,15 +24,33 @@ body{
 .form button:hover{
     background-color: teal;
 }
-h1{
-    color: rgb(133, 14, 14);
-}
+
 .posts{
     border: 1px solid black;
     padding: 30px;
+    padding-top: 5px;
     margin-top: 20px;
     background-color: rgba(139, 139, 139, 0.212);
 }
+.posts h1{
+    color: rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255) ;
+    padding: 25px;
+    margin-top: 5px;
+}
 .post{
     border-bottom: 1px solid rgb(192, 184, 184);
+}
+.post h4{
+    color: rgb(134, 132, 132);
+}
+button{
+    border: unset;
+    height: 40px;
+    padding: 15px;
+    background-color: rgb(122, 55, 17);
+    color: white;
+    border-radius: 8px;
+    margin: 25px;
+    cursor: pointer;
 }

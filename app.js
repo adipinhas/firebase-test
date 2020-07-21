@@ -1,9 +1,8 @@
-console.log('k');
 
-db.collection('posts').orderBy('stamp').onSnapshot(snapshot => {
+db.collection('posts').orderBy('id').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
-        // console.log(change.type);
+        //if anything change in post collection 
         if(change.type == 'added'||change.type == 'removed'||change.type == 'modified'){
             renderPosts(snapshot)
         }
@@ -14,8 +13,9 @@ const renderPosts = (snapshot) => {
     snapshot.docs.forEach(doc => {
         postsStr +=`<div class="post">
                     <h2>${doc.data().title}</h2>
+                    <p>${doc.data().content}</p>
                     <h4>${doc.data().time}</h4>
-                <p>${doc.data().content}</p>
+                <button onclick="removePost(id)" id="${doc.data().id}">X</button>
         </div>`
                    
         
@@ -36,22 +36,16 @@ function sendToDb(e){
     document.getElementById('title').value = ''; 
     document.getElementById('content').value = ''; 
     const d = new Date()
-    db.collection('posts').add({
+    db.collection('posts').doc(`${Date.now()}`).set({
         ...currentPost,
         time: ''+d.getDate()+ '/'+ (d.getMonth()+1)+'/'+ d.getFullYear(),
-        stamp:Date.now()
+        id:Date.now()
     })
 }
 
+function removePost(id){
+    alert(id)
+   db.collection('posts').doc(id).delete();
+}
 
-// db.collection('posts').get().then((snapshot)=>{
-//     snapshot.docs.forEach(doc => {
-//         console.log(doc.data().title);
-//         postsStr =postsStr +`<h1>${doc.data().title}</h1>
-//                             <h3>${doc.data().content}</h3>`
-//     })
-
-//     console.log(postsStr);
-//     document.getElementById('posts').innerHTML = postsStr
-// })
 
