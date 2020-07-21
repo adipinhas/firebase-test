@@ -1,0 +1,38 @@
+body{
+    background-color: aliceblue;
+}
+.form{
+    background-color: antiquewhite;
+    padding: 30px;
+}
+.form input {
+    border: unset;
+    height: 40px;
+    border-radius: 8px;
+}
+.form button{
+    border: unset;
+    height: 40px;
+    padding: 15px;
+    background-color: rgb(17, 122, 31);
+    color: white;
+    border-radius: 8px;
+    margin: 25px;
+    cursor: pointer;
+
+}
+.form button:hover{
+    background-color: teal;
+}
+h1{
+    color: rgb(133, 14, 14);
+}
+.posts{
+    border: 1px solid black;
+    padding: 30px;
+    margin-top: 20px;
+    background-color: rgba(139, 139, 139, 0.212);
+}
+.post{
+    border-bottom: 1px solid rgb(192, 184, 184);
+}
